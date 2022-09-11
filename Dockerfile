@@ -22,4 +22,5 @@ RUN mkdir docker && cd docker && \
 # Bugfix: this command does not only set CWD, but creates one if it does not exist
 WORKDIR /docker
 
-CMD oz
+# Now allows OPI exit to shell without shutdown
+CMD nohup oz & /bin/sh
