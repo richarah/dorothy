@@ -15,7 +15,7 @@ Once the Docker build finishes, Dorothy may be run with the following command. T
 docker run -it dorothy
 ```
 #### Bind mounts
-Bind mounts may be attached to the container at runtime as follows:
+Bind mounts may be attached to the container at runtime as follows, replacing `/path/to/dir` with the path to the host directory one wishes to mount, and `/docker` with the path to access this directory from within the container:
 ```
 sudo docker run -v /path/to/dir:/docker -it dorothy
 ```
