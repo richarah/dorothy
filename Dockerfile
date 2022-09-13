@@ -1,4 +1,4 @@
-FROM ubuntu:latest AS textmode
+FROM ubuntu:latest
 
 # Build for AMD64
 # Please modify this to suit your architecture
@@ -22,25 +22,8 @@ RUN git clone --recursive https://github.com/mozart/mozart2 && \
     cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_COMPILER_ARCHITECTURE_ID=$ARCH ..  && \
     make && make install
 
-WORKDIR /
+WORKDIR /docker
 RUN rm -rfv /build
 
-RUN apt-get install apt-transport-https -y && \
-    apt-get install apt-utils x11-apps -y
-
-# Add user with credentials from cmdline
-ARG user
-ARG uid
-ARG gid
-
-ENV USERNAME ${user}
-RUN useradd -m $USERNAME && \
-        echo "$USERNAME:$USERNAME" | chpasswd && \
-        usermod --shell /bin/bash $USERNAME && \
-        usermod  --uid ${uid} $USERNAME && \
-        groupmod --gid ${gid} $USERNAME
-USER ${user}
-
-WORKDIR /home/${user}
 # No logout upon Oz exit
 CMD nohup oz & /bin/bash
