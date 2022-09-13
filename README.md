@@ -15,7 +15,7 @@ Once the Docker build finishes, Dorothy may be run with the following command. T
 docker run -it -e DISPLAY=unix$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix -v /tmp/.docker.xauth:/tmp/.docker.xauth:rw -e XAUTHORITY=/tmp/.docker.xauth x11-dorothy
 ```
 #### Bind mounts
-Bind mounts may be attached to the container at runtime using the `-v` flag, replacing `/path/to/dir` with the path to the host directory one wishes to mount, and `/docker` with the path to access this directory from within the container.
+Additional bind mounts may be attached using the `-v` flag, replacing `/path/to/dir` with the path to the host directory one wishes to mount, and `/docker` with the path to access this directory from within the container.
 The syntax is as follows:
 ```
 -v /path/to/host/dir:/path/to/container/dir
