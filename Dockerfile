@@ -13,13 +13,13 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     	openjdk-11-jre-headless \ 
     	emacs
 
-RUN mkdir docker && cd docker && \
-    git clone --recursive https://github.com/mozart/mozart2 && \
+WORKDIR /build
+RUN git clone --recursive https://github.com/mozart/mozart2 && \
     cd mozart2 && mkdir build && cd build && \
     cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_COMPILER_ARCHITECTURE_ID=$ARCH ..  && \
     make && make install
 
-# Bugfix: this command does not only set CWD, but creates one if it does not exist
 WORKDIR /docker
+RUN rm -rf /build
 
 CMD /bin/bash
