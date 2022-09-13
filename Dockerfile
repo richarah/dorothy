@@ -1,4 +1,4 @@
-FROM ubuntu-latest AS textmode # Stage 1, no X11
+FROM ubuntu:latest AS textmode
 
 # Build for AMD64
 # Please modify this to suit your architecture
