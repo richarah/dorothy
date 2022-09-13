@@ -22,4 +22,4 @@ RUN mkdir docker && cd docker && \
 # Bugfix: this command does not only set CWD, but creates one if it does not exist
 WORKDIR /docker
 
-CMD nohup oz & /bin/sh
+CMD /bin/sh
