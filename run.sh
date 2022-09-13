@@ -8,4 +8,5 @@ docker run \
 -e XAUTHORITY=/tmp/.docker.xauth \
 -v /tmp/.X11-unix:/tmp/.X11-unix \
 -v /tmp/.docker.xauth:/tmp/.docker.xauth:rw \
+-v /home/$USER:/home/$USER \
 x11-dorothy
