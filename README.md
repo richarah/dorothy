@@ -1,5 +1,13 @@
 # Dorothy
-Dorothy (named after the protagonist of Frank Baum's Oz novels) is a Docker image for running the Oz Programming Interface within a containerised runtime environment.
+Dorothy (named after the protagonist of Frank Baum's Oz novels) is a Docker image for interacting with Oz programs and running the Mozart OPI within a containerised runtime environment.
+
+#### Motivation
+Oz in its current state is marred by compatibility issues on certain machines and OSes, meaning that programs may not run or compile as they do on other systems (the infamous "it works on my machine")
+
+This project aims to resolve these issues by isolating Oz, the OPI and their respective dependencies from their host environment, providing a standardised container that runs identically on a wide variety of different machines.
+
+#### Author's note on macOS compatibility/X11 issues
+Theoretically, Dorothy should be able to run with XQuartz - however, I cannot verify this until I find a machine to test it on.
 
 # Building Dorothy
 
@@ -9,7 +17,7 @@ Before proceeding, please ensure that you have Docker installed on your machine.
 git clone https://github.com/richarah/dorothy.git
 ```
 
-Once the repository has been cloned, the Docker image may be built without any further configuration via the provided `build.sh`:
+Once the repository has been cloned, the Docker image may be built without further configuration via the provided `build.sh`:
 #### Via build.sh (recommended for most users)
 ```
 cd dorothy
@@ -22,6 +30,11 @@ The Dorothy image may also be built 'manually' via Docker command, which may be 
 ```
 docker build --build-arg user=$USER --build-arg uid=$(id -u) --build-arg gid=$(id -g) -t dorothy .
 ```
+
+When building Dorothy this way, one also has to set the necessary `xauth` permissions:
+```
+xauth nlist $DISPLAY | sed -e 's/^..../ffff/' | xauth -f /tmp/.docker.xauth nmerge -
+``
 
 #### Non-x64 architectures
 When building for architectures other than the default `x64`, please set the `ARCH` environment variable to suit your machine's architecture, else the software may not work as intended.
