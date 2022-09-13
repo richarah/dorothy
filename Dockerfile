@@ -45,4 +45,5 @@ RUN useradd -m $USERNAME && \
 USER ${user}
 
 WORKDIR /home/${user}
-CMD /bin/bash
+# No logout upon Oz exit
+CMD nohup oz & /bin/bash
