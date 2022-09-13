@@ -1,7 +1,12 @@
 #!/bin/sh
 
+# Create xauth file and set the appropriate permissions
+xauth nlist $DISPLAY | sed -e 's/^..../ffff/' | xauth -f /tmp/.docker.xauth nmerge -
+
 # cd to script location
 cd "${0%/*}"
+
+# Make interactive, add bind mounts & X11 compat
 docker run \
 -it \
 -e DISPLAY=unix$DISPLAY \
