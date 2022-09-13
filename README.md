@@ -34,7 +34,7 @@ docker build --build-arg user=$USER --build-arg uid=$(id -u) --build-arg gid=$(i
 When building Dorothy this way, one also has to set the necessary `xauth` permissions:
 ```
 xauth nlist $DISPLAY | sed -e 's/^..../ffff/' | xauth -f /tmp/.docker.xauth nmerge -
-``
+```
 
 #### Non-x64 architectures
 When building for architectures other than the default `x64`, please set the `ARCH` environment variable to suit your machine's architecture, else the software may not work as intended.
