@@ -25,9 +25,6 @@ RUN git clone --recursive https://github.com/mozart/mozart2 && \
 WORKDIR /
 RUN rm -rfv /build
 
-# xauth and X11 deps
-FROM textmode AS x11-gui
-
 RUN apt-get install apt-transport-https -y && \
     apt-get install apt-utils x11-apps -y
 
