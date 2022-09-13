@@ -31,7 +31,7 @@ Depending on your machine and Internet connection, this may take anywhere from 1
 #### Via Docker command
 The Dorothy image may also be built 'manually' via Docker command, which may be useful for non-standard configurations (see below)
 ```
-docker build -t dorothy .
+docker build -t dorothy-tui .
 ```
 
 #### Non-x64 architectures
