@@ -6,7 +6,7 @@ When building for architectures other than the default `x64`, please set the `AR
 ```
 git clone https://github.com/richarah/dorothy.git
 cd dorothy
-docker build . -t dorothy
+docker build --build-arg user=$USER --build-arg uid=$(id -u) --build-arg gid=$(id -g) -t x11-dorothy .
 ```
 
 # Running Dorothy

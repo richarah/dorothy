@@ -4,6 +4,8 @@ FROM ubuntu:latest AS textmode
 # Please modify this to suit your architecture
 ARG ARCH=x64
 
+# Noninteractive frontend had to be specified again and again
+# as some versions of Docker tend to "forget"
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && \ 
     DEBIAN_FRONTEND=noninteractive apt-get upgrade -y && \ 
     DEBIAN_FRONTEND=noninteractive apt-get install -y \ 
