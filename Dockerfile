@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM ubuntu-latest AS textmode # Stage 1, no X11
 
 # Build for AMD64
 # Please modify this to suit your architecture
@@ -22,4 +22,26 @@ RUN git clone --recursive https://github.com/mozart/mozart2 && \
 WORKDIR /docker
 RUN rm -rfv /build
 
+
+
+# xauth and X11 deps
+FROM textmode AS x11-gui
+
+RUN apt-get install apt-transport-https -y && \
+    apt-get install apt-utils x11-apps -y
+
+# Add user with credentials from cmdline
+ARG user
+ARG uid
+ARG gid
+
+ENV USERNAME ${user}
+RUN useradd -m $USERNAME && \
+        echo "$USERNAME:$USERNAME" | chpasswd && \
+        usermod --shell /bin/bash $USERNAME && \
+        usermod  --uid ${uid} $USERNAME && \
+        groupmod --gid ${gid} $USERNAME
+USER ${user}
+
+WORKDIR /docker
 CMD /bin/bash
