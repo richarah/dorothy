@@ -7,4 +7,4 @@ cd "${0%/*}"
 docker run \
 -it \
 -v /home/$USER:/home/$USER \
-x11-dorothy
+dorothy-tui
