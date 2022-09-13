@@ -31,12 +31,7 @@ Depending on your machine and Internet connection, this may take anywhere from 1
 #### Via Docker command
 The Dorothy image may also be built 'manually' via Docker command, which may be useful for non-standard configurations (see below)
 ```
-docker build --build-arg user=$USER --build-arg uid=$(id -u) --build-arg gid=$(id -g) -t dorothy .
-```
-
-When building Dorothy this way, one also has to set the necessary `xauth` permissions:
-```
-xauth nlist $DISPLAY | sed -e 's/^..../ffff/' | xauth -f /tmp/.docker.xauth nmerge -
+docker build -t dorothy .
 ```
 
 #### Non-x64 architectures
@@ -45,7 +40,7 @@ When building for architectures other than the default `x64`, please set the `AR
 # Running Dorothy
 Once the Docker build finishes, Dorothy may be run with `./dorothy.sh` or via Docker command, as follows:
 ```
-docker run -it -e DISPLAY=unix$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix -v /tmp/.docker.xauth:/tmp/.docker.xauth:rw -e XAUTHORITY=/tmp/.docker.xauth dorothy
+docker run -it -v /home/$USER:/home/$USER dorothy-tui
 ```
 #### Bind mounts
 By default, Dorothy binds the user's home directory to the home directory within the container. However, some users may wish to append additional bind mounts or forgo this altogether.
