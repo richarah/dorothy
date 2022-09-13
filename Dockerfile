@@ -20,6 +20,6 @@ RUN git clone --recursive https://github.com/mozart/mozart2 && \
     make && make install
 
 WORKDIR /docker
-RUN rm -rf /build
+RUN rm -rfv /build
 
 CMD /bin/bash
