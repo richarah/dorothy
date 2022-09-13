@@ -1,3 +1,0 @@
-[submodule "x11-docker"]
-	path = x11-docker
-	url = https://github.com/richarah/x11-docker
