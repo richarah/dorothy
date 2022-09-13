@@ -16,15 +16,14 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     	emacs
 
 WORKDIR /build
+
 RUN git clone --recursive https://github.com/mozart/mozart2 && \
     cd mozart2 && mkdir build && cd build && \
     cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_COMPILER_ARCHITECTURE_ID=$ARCH ..  && \
     make && make install
 
-WORKDIR /docker
+WORKDIR /
 RUN rm -rfv /build
-
-
 
 # xauth and X11 deps
 FROM textmode AS x11-gui
@@ -45,5 +44,5 @@ RUN useradd -m $USERNAME && \
         groupmod --gid ${gid} $USERNAME
 USER ${user}
 
-WORKDIR /docker
+WORKDIR /home/${user}
 CMD /bin/bash
