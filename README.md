@@ -38,7 +38,7 @@ docker build -t dorothy .
 When building for architectures other than the default `x64`, please set the `ARCH` environment variable to suit your machine's architecture, else the software may not work as intended.
 
 # Running Dorothy
-Once the Docker build finishes, Dorothy may be run with `./dorothy.sh` or via Docker command, as follows:
+Once the Docker build finishes, Dorothy may be run with `./dorothy-tui.sh` or via Docker command, as follows:
 ```
 docker run -it -v /home/$USER:/home/$USER dorothy-tui
 ```
