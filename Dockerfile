@@ -4,6 +4,8 @@ FROM ubuntu:latest
 # Please modify this to suit your architecture
 ARG ARCH=x64
 
+ENV 
+
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && \ 
     DEBIAN_FRONTEND=noninteractive apt-get upgrade -y && \ 
     DEBIAN_FRONTEND=noninteractive apt-get install -y \ 
@@ -22,5 +24,4 @@ RUN mkdir docker && cd docker && \
 # Bugfix: this command does not only set CWD, but creates one if it does not exist
 WORKDIR /docker
 
-# Now allows OPI exit to shell without shutdown
 CMD nohup oz & /bin/sh
