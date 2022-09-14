@@ -1,20 +1,16 @@
-# Dorothy
+# Dorothy TUI
 Dorothy (named after the protagonist of Frank Baum's Oz novels) is a Docker image for interacting with Oz programs and running the Mozart OPI within a containerised runtime environment.
 
-#### Note on Apple silicon and X11 issues
-Due to XQuartz' present incompatibility with Apple silicon, the TUI (Text User Interface) branch of Dorothy is recommended for Mac users experiencing issues with the X11 GUI version of Dorothy.
+#### TUI?
+This is the TUI (Text User Interface) branch of Dorothy, replacing the X11-based GUI with an interface based on the Emacs editor.
 
-This branch may be cloned with the following command:
-```
-git clone https://github.com/richarah/dorothy.git -b tui
-```
+For those unfamiliar with Emacs or text-based user interfaces in general, the following documentation may be helpful:
 
-#### Motivation
-Oz in its current state is known for compatibility issues on certain machines and OSes, meaning that programs may not run or compile as they do on other systems (the infamous "it works on my machine")
+[Official GNU Emacs Manual](https://www.gnu.org/software/emacs/manual/emacs.html)
 
-This project aims to resolve these issues by isolating Oz, the OPI and their respective dependencies from their host environment, providing a standardised container that runs identically on a wide variety of different machines.
+[Oz-Emacs Cheat Sheet ](https://github.com/richarah/oz-tui-cheat-sheet) (work in progress)
 
-# Building Dorothy
+# Building Dorothy TUI
 
 #### Dependencies
 Before proceeding, please ensure that you have Docker installed on your machine. Next, clone the repository as follows:
@@ -39,11 +35,12 @@ docker build -t dorothy-tui .
 #### Non-x64 architectures
 When building for architectures other than the default `x64`, please set the `ARCH` environment variable to suit your machine's architecture, else the software may not work as intended.
 
-# Running Dorothy
+# Running Dorothy TUI
 Once the Docker build finishes, Dorothy may be run with `./dorothy-tui.sh` or via Docker command, as follows:
 ```
 docker run -it -v /home/$USER:/home/$USER dorothy-tui
 ```
+
 #### Bind mounts
 By default, Dorothy binds the user's home directory to the home directory within the container. However, some users may wish to append additional bind mounts or forgo this altogether.
 
