@@ -30,7 +30,7 @@ docker run \
 -v /tmp/.X11-unix:/tmp/.X11-unix \
 -v /tmp/.docker.xauth:/tmp/.docker.xauth:rw \
 -v /home/$USER:/docker \
-dorothy
+dorothy-x11-gui
 ```
 
 #### Text User Interface (Linux & macOS)
