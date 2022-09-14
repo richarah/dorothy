@@ -59,7 +59,7 @@ Due to the TUI version of Dorothy omitting X11, code that requires a window mana
 
 #### Will I have to enter that obscenely long `docker run` command every time I want Oz?
 
-Not necessarily. This could be resolved by setting an `alias`, a shortcut that references a command - in this case, our `docker run` command and its parameters.
+Not necessarily: the process can be simplified by setting an `alias`, a shortcut that references a command - in this case, our `docker run` command and its parameters.
 
 After executing the following commands, you should be able to start Dorothy simply by entering `dorothy` in the command line.
 
