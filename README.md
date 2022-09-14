@@ -1,9 +1,13 @@
 # Dorothy
 Dorothy (named after the protagonist of Frank Baum's Oz novels) is a Docker image for interacting with Oz programs and running the OPI from within a container, either standalone or as part of a CDE (Containerised Development Environment) - e.g. using VSCode's [Remote - Containers](https://code.visualstudio.com/docs/remote/containers) extension.
 
+#### Motivation
+
+The aim of this project is to resolve the machine- and platform-specific issues often encountered when running Oz on certain systems by packaging Oz, the OPI and their respective dependencies in a Docker container - a self-contained environment that isolates its contents from the host system; resulting in a standardised unit of software that runs identically on a wide variety of systems.
+
 #### Mac users: Apple silicon and X11 issues
 
-Due to XQuartz' present incompatibility with Apple silicon, the TUI (Text User Interface) version of Dorothy is recommended for Mac users experiencing issues with the X11 GUI.
+Due to XQuartz' current incompatibility with Apple silicon, the TUI (Text User Interface) version of Dorothy is recommended for Mac users experiencing issues with the X11 GUI.
 
 
 
