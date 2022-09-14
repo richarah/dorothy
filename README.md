@@ -52,7 +52,7 @@ Due to the TUI version of Dorothy omitting X11, code that requires a window mana
 
 
 
-## Setting up an alias (optional)
+## Set up an alias (optional)
 
 #### Will I have to enter that obscenely long `docker run` command every time I want Oz?
 
