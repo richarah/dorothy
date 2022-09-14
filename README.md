@@ -1,5 +1,5 @@
 # Dorothy
-Dorothy (named after the protagonist of Frank Baum's Oz novels) is a Docker image for interacting with Oz programs and running the Mozart OPI within a containerised runtime environment.
+Dorothy (named after the protagonist of Frank Baum's Oz novels) is a Docker image for interacting with Oz programs and running the OPI from within a standardised, isolated container-based environment.
 
 #### Mac users: Apple silicon and X11 issues
 
