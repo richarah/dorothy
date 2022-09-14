@@ -9,7 +9,7 @@ This branch may be cloned with the following command.
 git clone https://github.com/richarah/dorothy.git -b tui
 ```
 
-**Note: The textmode version of Dorothy uses a simplified build process and a different tagging nomenclature to differentiate it from its X11 counterpart. Please refer to the README file of the `tui` branch for further information.**
+**Note: The textmode version of Dorothy uses a simplified build process and a different tagging nomenclature to differentiate it from its X11 counterpart. Please refer to the README file on the `tui` branch for further information.**
 
 #### Motivation
 Oz in its current state is known for compatibility issues on certain machines and OSes, meaning that programs may not run or compile as they do on other systems (the infamous "it works on my machine")
