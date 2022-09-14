@@ -5,7 +5,8 @@ Dorothy (named after the protagonist of Frank Baum's Oz novels) is a Docker imag
 
 **Note: The textmode version of Dorothy uses a simplified build process and a different tagging nomenclature to its X11 counterpart. Please refer to the README file on the `tui` branch for further information.**
 
-Due to XQuartz' present incompatibility with Apple silicon, the Emacs-based `tui` (Text User Interface) branch of Dorothy is recommended for Mac users experiencing issues with the X11 GUI version of Dorothy.
+Due to XQuartz' present incompatibility with Apple silicon, the Emacs-based `tui` (Text User Interface) branch of Dorothy is recommended for Mac users experiencing issues with the X11 GUI version of Dorothy. This branch may be pulled directly from Docker Hub and run as follows:
+
 ```
 docker pull ghcr.io/richarah/dorothy-tui:latest
 docker run -it -v /home/$USER:/docker dorothy-tui
