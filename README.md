@@ -6,7 +6,7 @@ Due to XQuartz' present incompatibility with Apple silicon, the Emacs-based `tui
 
 This branch may be cloned with the following command.
 
-**Note: The textmode version of Dorothy uses a simplified build process and a different tagging nomenclature to differentiate it from its X11 counterpart. Please refer to the README file on the `tui` branch for further information.**
+**Note: The textmode version of Dorothy uses a simplified build process and a different tagging nomenclature to its X11 counterpart. Please refer to the README file on the `tui` branch for further information.**
 
 ```
 git clone https://github.com/richarah/dorothy.git -b tui
