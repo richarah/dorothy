@@ -1,18 +1,37 @@
 # Dorothy
 Dorothy (named after the protagonist of Frank Baum's Oz novels) is a Docker image for interacting with Oz programs and running the Mozart OPI within a containerised runtime environment.
 
-## Mac users: Apple silicon and X11 issues
+#### Mac users: Apple silicon and X11 issues
 
-**Note: The textmode version of Dorothy uses a simplified build process and a different tagging nomenclature to its X11 counterpart. Please refer to the README file on the `tui` branch for further information.**
+Due to XQuartz' present incompatibility with Apple silicon, the TUI (Text User Interface) of Dorothy is recommended for Mac users experiencing issues with the X11 GUI version of Dorothy.
 
-Due to XQuartz' present incompatibility with Apple silicon, the Emacs-based `tui` (Text User Interface) branch of Dorothy is recommended for Mac users experiencing issues with the X11 GUI version of Dorothy. This branch may be pulled directly from Docker Hub and run as follows:
+## Pull and run Docker image (recommended for most users)
 
+#### Graphical User Interface (X11)
+
+```
+# Build and set xauth perms
+docker pull ghcr.io/richarah/dorothy-x11-gui:latest
+xauth nlist $DISPLAY | sed -e 's/^..../ffff/' | xauth -f /tmp/.docker.xauth nmerge -
+
+# Run
+docker run \
+--rm \
+-it \
+-e DISPLAY=unix$DISPLAY \
+-e XAUTHORITY=/tmp/.docker.xauth \
+-v /tmp/.X11-unix:/tmp/.X11-unix \
+-v /tmp/.docker.xauth:/tmp/.docker.xauth:rw \
+-v /home/$USER:/docker \
+dorothy
+```
+
+#### Text User Interface (Emacs)
 ```
 docker pull ghcr.io/richarah/dorothy-tui:latest
-docker run -it -v /home/$USER:/docker dorothy-tui
+docker run --rm -it -v /home/$USER:/docker dorothy-tui
 ```
 
-## Emacs?
 For those unfamiliar with the Emacs editor or text-based user interfaces in general, the following documentation may be helpful:
 
 [Official GNU Emacs Manual](https://www.gnu.org/software/emacs/manual/emacs.html)
@@ -26,22 +45,12 @@ Before proceeding, please ensure that you have Docker installed on your machine.
 ```
 git clone https://github.com/richarah/dorothy.git
 ```
-
-Once the repository has been cloned, the Docker image may be built without further configuration via the provided `build.sh`:
-## Via build.sh (recommended for most users)
+The Docker image may then be built with the following command:
 ```
 cd dorothy
-./build.sh
+docker build -t dorothy .
 ```
-Depending on your machine and Internet connection, this may take anywhere from 15 minutes to two hours.
-
-## Via Docker command
-The Dorothy image may also be built 'manually' via Docker command, which may be useful for non-standard configurations (see below)
-```
-docker build --build-arg user=$USER --build-arg uid=$(id -u) --build-arg gid=$(id -g) -t dorothy .
-```
-
-When building Dorothy this way, one also has to set the necessary `xauth` permissions:
+Set the necessary `xauth` permissions for the X11 GUI to work:
 ```
 xauth nlist $DISPLAY | sed -e 's/^..../ffff/' | xauth -f /tmp/.docker.xauth nmerge -
 ```
@@ -49,13 +58,20 @@ xauth nlist $DISPLAY | sed -e 's/^..../ffff/' | xauth -f /tmp/.docker.xauth nmer
 #### Non-x64 architectures
 When building for architectures other than the default `x64`, please set the `ARCH` environment variable to suit your machine's architecture, else the software may not work as intended.
 
-# Running Dorothy
-Once the Docker build finishes, Dorothy may be run with `./dorothy.sh` or via Docker command, as follows:
+Once the Docker build finishes, Dorothy may be run as follows:
 ```
-docker run -it -e DISPLAY=unix$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix -v /tmp/.docker.xauth:/tmp/.docker.xauth:rw -e XAUTHORITY=/tmp/.docker.xauth dorothy
+docker run \
+--rm \
+-it \
+-e DISPLAY=unix$DISPLAY \
+-e XAUTHORITY=/tmp/.docker.xauth \
+-v /tmp/.X11-unix:/tmp/.X11-unix \
+-v /tmp/.docker.xauth:/tmp/.docker.xauth:rw \
+-v /home/$USER:/docker \
+dorothy
 ```
 #### Bind mounts
-By default, Dorothy binds the user's home directory to the home directory within the container. However, some users may wish to append additional bind mounts or forgo this altogether.
+By default, Dorothy binds the user's home directory to the `/docker` directory within the container. However, some users may wish to append additional bind mounts or forgo this altogether.
 
 Additional bind mounts may be attached using the `-v` flag, replacing `/path/to/dir` with the path to the host directory one wishes to mount, and `/docker` with the path to access this directory from within the container.
 The syntax is as follows:
