@@ -80,6 +80,16 @@ source ~/.zshrc
 ```
 
 
+## Modify bind mounts (optional)
+By default, Dorothy binds the user's home directory to the `/docker` directory within the container. However, some users may wish to append additional bind mounts or forgo these altogether.
+
+Additional bind mounts may be attached using the `-v` flag, replacing `/path/to/dir` with the path to the host directory one wishes to mount, and `/docker` with the path to access this directory from within the container.
+The syntax is as follows:
+```
+-v /path/to/host/dir:/path/to/container/dir
+```
+
+
 
 ## Building Dorothy (advanced)
 
@@ -101,8 +111,6 @@ xauth nlist $DISPLAY | sed -e 's/^..../ffff/' | xauth -f /tmp/.docker.xauth nmer
 #### Non-x64 architectures
 When building for architectures other than the default `x64`, please set the `ARCH` environment variable to suit your machine's architecture, else the software may not work as intended.
 
-#### Run
-
 Once the Docker build finishes, Dorothy may be run as follows:
 
 ```
@@ -115,12 +123,4 @@ docker run \
 -v /tmp/.docker.xauth:/tmp/.docker.xauth:rw \
 -v /home/$USER:/docker \
 dorothy
-```
-#### Bind mounts
-By default, Dorothy binds the user's home directory to the `/docker` directory within the container. However, some users may wish to append additional bind mounts or forgo this altogether.
-
-Additional bind mounts may be attached using the `-v` flag, replacing `/path/to/dir` with the path to the host directory one wishes to mount, and `/docker` with the path to access this directory from within the container.
-The syntax is as follows:
-```
--v /path/to/host/dir:/path/to/container/dir
-```
+``
