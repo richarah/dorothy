@@ -9,7 +9,7 @@ Due to XQuartz' present incompatibility with Apple silicon, the TUI (Text User I
 
 ## Pull and run Docker image
 
-#### Graphical User Interface (X11, Linux only)
+#### Graphical User Interface (Linux only)
 
 ```
 # Pull image and edit tag
@@ -29,7 +29,7 @@ docker run \
 dorothy
 ```
 
-#### Text User Interface (Emacs, Linux/macOS)
+#### Text User Interface (Linux & macOS)
 ```
 docker pull ghcr.io/richarah/dorothy-tui:latest
 docker tag ghcr.io/richarah/dorothy-tui:latest dorothy-tui
