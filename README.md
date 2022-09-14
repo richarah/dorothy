@@ -13,7 +13,7 @@ Due to XQuartz' present incompatibility with Apple silicon, the TUI (Text User I
 
 ```
 # Pull image and edit tag
-docker pull ghcr.io/richarah/dorothy-x11-gui:latest
+docker pull ghcr.io/richarah/dorothy-x11-gui:latest && \
 docker tag ghcr.io/richarah/dorothy-x11-gui dorothy-x11-gui
 
 # Set xauth permissions and run Dorothy
