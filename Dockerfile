@@ -1,4 +1,4 @@
-FROM ubuntu:latest AS textmode
+FROM ubuntu:latest
 
 # Build for AMD64
 # Please modify this to suit your architecture
