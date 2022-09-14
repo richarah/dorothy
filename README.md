@@ -35,8 +35,11 @@ dorothy
 
 #### Text User Interface (Linux & macOS)
 ```
-docker pull ghcr.io/richarah/dorothy-tui:latest
+# Pull image and edit tag
+docker pull ghcr.io/richarah/dorothy-tui:latest && \
 docker tag ghcr.io/richarah/dorothy-tui:latest dorothy-tui
+
+# Run (no X11 tinkering necessary)
 docker run --rm -it -v /home/$USER:/docker dorothy-tui
 ```
 
