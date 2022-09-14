@@ -12,6 +12,13 @@ This branch may be cloned with the following command.
 git clone https://github.com/richarah/dorothy.git -b tui
 ```
 
+#### Emacs?
+For those unfamiliar with the Emacs editor or text-based user interfaces in general, the following documentation may be helpful:
+
+[Official GNU Emacs Manual](https://www.gnu.org/software/emacs/manual/emacs.html)
+
+[Oz-Emacs Cheat Sheet ](https://github.com/richarah/oz-tui-cheat-sheet) (work in progress)
+
 # Building Dorothy
 
 #### Dependencies
