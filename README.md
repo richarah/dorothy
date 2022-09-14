@@ -3,7 +3,7 @@ Dorothy (named after the protagonist of Frank Baum's Oz novels) is a Docker imag
 
 #### But why?
 
-The aim of this project is to resolve the machine- and platform-specific issues often encountered when running Oz on certain systems by packaging Oz, the OPI and their respective dependencies in a Docker container - a self-contained environment that isolates its contents from the host system; resulting in a standardised unit of software that runs identically on a wide variety of systems.
+The aim of this project is to resolve the machine- and platform-specific issues often encountered when running Oz on certain systems by packaging Oz, the OPI and their respective dependencies in a Docker container - a self-contained environment that isolates its contents from the host, resulting in a standardised unit of software that runs identically on a wide variety of systems.
 
 #### Mac users: Apple silicon and X11 issues
 
