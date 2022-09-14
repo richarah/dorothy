@@ -7,7 +7,7 @@ Due to XQuartz' present incompatibility with Apple silicon, the TUI (Text User I
 
 
 
-## Pull and run Docker image (recommended)
+## Pull and run Docker image
 
 #### Graphical User Interface (X11, Linux only)
 
