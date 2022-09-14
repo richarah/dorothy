@@ -1,7 +1,7 @@
 # Dorothy
 Dorothy (named after the protagonist of Frank Baum's Oz novels) is a Docker image for interacting with Oz programs and running the Mozart OPI within a containerised runtime environment.
 
-#### Note on Apple silicon and X11 issues
+#### Mac users: Apple silicon and X11 issues
 Due to XQuartz' present incompatibility with Apple silicon, the Emacs-based `tui` (Text User Interface) branch of Dorothy is recommended for Mac users experiencing issues with the X11 GUI version of Dorothy.
 
 This branch may be cloned with the following command.
