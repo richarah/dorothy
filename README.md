@@ -5,21 +5,23 @@ Dorothy (named after the protagonist of Frank Baum's Oz novels) is a Docker imag
 
 Due to XQuartz' present incompatibility with Apple silicon, the TUI (Text User Interface) of Dorothy is recommended for Mac users experiencing issues with the X11 GUI version of Dorothy.
 
+
+
 ## Pull and run Docker image (recommended)
 
 #### Graphical User Interface (X11)
 
 ```
-# Pull image, fix tag & setup xauth perms
+# Pull image and edit tag
 docker pull ghcr.io/richarah/dorothy-x11-gui:latest
 docker tag ghcr.io/richarah/dorothy-x11-gui dorothy-x11-gui
-xauth nlist $DISPLAY | sed -e 's/^..../ffff/' | xauth -f /tmp/.docker.xauth nmerge -
 
-# Run
+# Set xauth permissions and run Dorothy
+xhost +SI:localuser:root && \
 docker run \
 --rm \
 -it \
--e DISPLAY=unix$DISPLAY \
+-e DISPLAY=:0 \
 -e XAUTHORITY=/tmp/.docker.xauth \
 -v /tmp/.X11-unix:/tmp/.X11-unix \
 -v /tmp/.docker.xauth:/tmp/.docker.xauth:rw \
@@ -44,9 +46,11 @@ For those unfamiliar with the Emacs editor or text-based user interfaces in gene
 
 Due to the TUI version of Dorothy omitting X11, code that requires a window manager or makes use of graphics libraries may not run as intended. Thus, e.g. instead of `{Browse}` , text-mode users are encouraged to use alternatives such as `{Show}`.
 
+
+
 ## Setting up an alias (optional)
 
-#### Will I have to run that colossal `docker run` command every time I want Oz?
+#### Will I have to enter that obscenely long `docker run` command every time I want Oz?
 
 Not necessarily. This could be resolved by setting an `alias`, a shortcut that references a command - in this case, our `docker run` command and its parameters.
 
@@ -57,7 +61,7 @@ If the changes do not take effect immediately, please restart the machine and tr
 #### X11 GUI (Linux)
 
 ```bash
-echo "alias dorothy='docker run --rm -it -e DISPLAY=:0 -e XAUTHORITY=/tmp/.docker.xauth -v /tmp/.X11-unix:/tmp/.X11-unix -v /tmp/.docker.xauth:/tmp/.docker.xauth:rw -v /home/$USER:/docker dorothy-x11-gui'" >> ~/.bashrc
+echo "alias dorothy='xhost +SI:localuser:root && docker run --rm -it -e DISPLAY=:0 -e XAUTHORITY=/tmp/.docker.xauth -v /tmp/.X11-unix:/tmp/.X11-unix -v /tmp/.docker.xauth:/tmp/.docker.xauth:rw -v /home/$USER:/docker dorothy-x11-gui'" >> ~/.bashrc
 source ~/.bashrc
 ```
 
@@ -74,6 +78,8 @@ source ~/.bashrc
 echo "alias dorothy='docker run --rm -it -v /home/$USER:/docker dorothy-tui'" >> ~/.zshrc
 source ~/.zshrc
 ```
+
+
 
 ## Building Dorothy (advanced)
 
