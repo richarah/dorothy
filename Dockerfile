@@ -25,23 +25,11 @@ RUN git clone --recursive https://github.com/mozart/mozart2 && \
 WORKDIR /
 RUN rm -rfv /build
 
+# X11 deps
 RUN apt-get install apt-transport-https -y && \
     apt-get install apt-utils x11-apps -y
 
-# Add user with credentials from cmdline
-ARG user
-ARG uid
-ARG gid
-
-ENV USERNAME ${user}
-RUN useradd -m $USERNAME && \
-        echo "$USERNAME:$USERNAME" | chpasswd && \
-        usermod --shell /bin/bash $USERNAME && \
-        usermod  --uid ${uid} $USERNAME && \
-        groupmod --gid ${gid} $USERNAME
-USER ${user}
-
-WORKDIR /home/${user}
+WORKDIR /docker
 
 # Nasty hack to ensure the bash prompt actually shows
 CMD oz && /bin/bash
