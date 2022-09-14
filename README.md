@@ -3,7 +3,7 @@ Dorothy (named after the protagonist of Frank Baum's Oz novels) is a Docker imag
 
 #### Mac users: Apple silicon and X11 issues
 
-Due to XQuartz' present incompatibility with Apple silicon, the TUI (Text User Interface) of Dorothy is recommended for Mac users experiencing issues with the X11 GUI version of Dorothy.
+Due to XQuartz' present incompatibility with Apple silicon, the TUI (Text User Interface) version of Dorothy is recommended for Mac users experiencing issues with the X11 GUI.
 
 
 
