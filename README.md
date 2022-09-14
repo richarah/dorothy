@@ -3,17 +3,17 @@ Dorothy (named after the protagonist of Frank Baum's Oz novels) is a Docker imag
 
 #### Mac users: Apple silicon and X11 issues
 
-Due to XQuartz' present incompatibility with Apple silicon, the TUI (Text User Interface) of Dorothy is recommended for Mac users experiencing issues with the X11 GUI version of Dorothy.
+Due to XQuartz' present incompatibility with Apple silicon, the TUI (Text User Interface) version of Dorothy is recommended for Mac users experiencing issues with the X11 GUI.
 
 
 
-## Pull and run Docker image (recommended)
+## Pull and run Docker image
 
-#### Graphical User Interface (X11)
+#### Graphical User Interface (Linux only)
 
 ```
 # Pull image and edit tag
-docker pull ghcr.io/richarah/dorothy-x11-gui:latest
+docker pull ghcr.io/richarah/dorothy-x11-gui:latest && \
 docker tag ghcr.io/richarah/dorothy-x11-gui dorothy-x11-gui
 
 # Set xauth permissions and run Dorothy
@@ -29,7 +29,7 @@ docker run \
 dorothy
 ```
 
-#### Text User Interface (Emacs)
+#### Text User Interface (Linux & macOS)
 ```
 docker pull ghcr.io/richarah/dorothy-tui:latest
 docker tag ghcr.io/richarah/dorothy-tui:latest dorothy-tui
@@ -80,6 +80,16 @@ source ~/.zshrc
 ```
 
 
+## Modify bind mounts (optional)
+By default, Dorothy binds the user's home directory to the `/docker` directory within the container. However, some users may wish to append additional bind mounts or forgo these altogether.
+
+Additional bind mounts may be attached using the `-v` flag, replacing `/path/to/dir` with the path to the host directory one wishes to mount, and `/docker` with the path to access this directory from within the container.
+The syntax is as follows:
+```
+-v /path/to/host/dir:/path/to/container/dir
+```
+
+
 
 ## Building Dorothy (advanced)
 
@@ -101,8 +111,6 @@ xauth nlist $DISPLAY | sed -e 's/^..../ffff/' | xauth -f /tmp/.docker.xauth nmer
 #### Non-x64 architectures
 When building for architectures other than the default `x64`, please set the `ARCH` environment variable to suit your machine's architecture, else the software may not work as intended.
 
-#### Run
-
 Once the Docker build finishes, Dorothy may be run as follows:
 
 ```
@@ -115,12 +123,4 @@ docker run \
 -v /tmp/.docker.xauth:/tmp/.docker.xauth:rw \
 -v /home/$USER:/docker \
 dorothy
-```
-#### Bind mounts
-By default, Dorothy binds the user's home directory to the `/docker` directory within the container. However, some users may wish to append additional bind mounts or forgo this altogether.
-
-Additional bind mounts may be attached using the `-v` flag, replacing `/path/to/dir` with the path to the host directory one wishes to mount, and `/docker` with the path to access this directory from within the container.
-The syntax is as follows:
-```
--v /path/to/host/dir:/path/to/container/dir
-```
+``
