@@ -1,5 +1,5 @@
 # Dorothy
-Dorothy (named after the protagonist of Frank Baum's Oz novels) is a Docker image for interacting with Oz programs and running the OPI from within a standardised, isolated container-based environment.
+Dorothy (named after the protagonist of Frank Baum's Oz novels) is a Docker image for interacting with Oz programs and running the OPI from within a standardised, isolated container-based environment; either standalone or as part of a CDE (e.g. using VSCode's [Remote - Containers](https://code.visualstudio.com/docs/remote/containers) extension).
 
 #### Mac users: Apple silicon and X11 issues
 
