@@ -29,7 +29,7 @@ docker run \
 dorothy
 ```
 
-#### Text User Interface (Emacs)
+#### Text User Interface (Emacs, Linux/macOS)
 ```
 docker pull ghcr.io/richarah/dorothy-tui:latest
 docker tag ghcr.io/richarah/dorothy-tui:latest dorothy-tui
