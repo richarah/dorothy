@@ -10,8 +10,9 @@ Due to XQuartz' present incompatibility with Apple silicon, the TUI (Text User I
 #### Graphical User Interface (X11)
 
 ```
-# Pull image & setup xauth perms
+# Pull image, fix tag & setup xauth perms
 docker pull ghcr.io/richarah/dorothy-x11-gui:latest
+docker tag ghcr.io/richarah/dorothy-x11-gui dorothy-x11-gui
 xauth nlist $DISPLAY | sed -e 's/^..../ffff/' | xauth -f /tmp/.docker.xauth nmerge -
 
 # Run
@@ -29,6 +30,7 @@ dorothy
 #### Text User Interface (Emacs)
 ```
 docker pull ghcr.io/richarah/dorothy-tui:latest
+docker tag ghcr.io/richarah/dorothy-tui:latest dorothy-tui
 docker run --rm -it -v /home/$USER:/docker dorothy-tui
 ```
 
@@ -42,9 +44,15 @@ For those unfamiliar with the Emacs editor or text-based user interfaces in gene
 
 Due to the TUI version of Dorothy omitting X11, code that requires a window manager or makes use of graphics libraries may not run as intended. Thus, e.g. instead of `{Browse}` , text-mode users are encouraged to use alternatives such as `{Show}`.
 
-## Aliases: do I have to enter that ridiculously long `docker run` command every time?
+## Setting up an alias (optional)
 
-Not necessarily - this could be resolved by setting an `alias`, i.e. a shortcut that references the `docker run [...] dorothy` command. After executing the following commands, you should be able to start Dorothy simply by entering `dorothy` in the command line.
+#### Will I have to run that colossal `docker run` command every time I want Oz?
+
+Not necessarily. This could be resolved by setting an `alias`, a shortcut that references a command - in this case, our `docker run` command and its parameters.
+
+After executing the following commands, you should be able to start Dorothy simply by entering `dorothy` in the command line.
+
+If the changes do not take effect immediately, please restart the machine and try again.
 
 #### X11 GUI (Linux)
 
@@ -67,7 +75,7 @@ echo "alias dorothy='docker run --rm -it -v /home/$USER:/docker dorothy-tui'" >>
 source ~/.zshrc
 ```
 
-# Building Dorothy
+## Building Dorothy (advanced)
 
 #### Dependencies
 Before proceeding, please ensure that you have Docker installed on your machine. Next, clone the repository as follows:
@@ -87,7 +95,10 @@ xauth nlist $DISPLAY | sed -e 's/^..../ffff/' | xauth -f /tmp/.docker.xauth nmer
 #### Non-x64 architectures
 When building for architectures other than the default `x64`, please set the `ARCH` environment variable to suit your machine's architecture, else the software may not work as intended.
 
+#### Run
+
 Once the Docker build finishes, Dorothy may be run as follows:
+
 ```
 docker run \
 --rm \
