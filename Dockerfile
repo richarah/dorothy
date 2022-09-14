@@ -44,4 +44,4 @@ USER ${user}
 WORKDIR /home/${user}
 
 # Nasty hack to ensure the bash prompt actually shows
-CMD oz & (sleep 1 && /bin/bash)
+CMD oz && /bin/bash
