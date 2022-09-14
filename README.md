@@ -9,7 +9,7 @@ Due to XQuartz' present incompatibility with Apple silicon, the TUI (Text User I
 
 ## Pull and run Docker image (recommended)
 
-#### Graphical User Interface (X11)
+#### Graphical User Interface (X11, Linux only)
 
 ```
 # Pull image and edit tag
