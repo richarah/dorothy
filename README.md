@@ -106,7 +106,7 @@ The syntax is as follows:
 ## Building Dorothy
 
 #### Dependencies
-Before proceeding, please ensure that you have Docker installed on your machine. Next, clone the repository as follows:
+Before proceeding, please ensure that you have Git and Docker installed on your machine. Next, clone the repository as follows:
 ```
 git clone https://github.com/richarah/dorothy.git
 cd dorothy
