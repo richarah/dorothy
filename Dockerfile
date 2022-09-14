@@ -42,5 +42,6 @@ RUN useradd -m $USERNAME && \
 USER ${user}
 
 WORKDIR /home/${user}
-# No logout upon Oz exit
-CMD nohup oz & /bin/bash
+
+# Nasty hack to ensure the bash prompt actually shows
+CMD oz & (sleep 1 && /bin/bash)
