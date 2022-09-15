@@ -1,11 +1,11 @@
 version: "2"
 services:
-  img1:
+  tui:
     image: dorothy-tui
     build:
       context: .
       dockerfile: dorothy-tui.Dockerfile
-  img2:
+  x11-gui:
     image: dorothy-x11-gui
     build:
       context: .
