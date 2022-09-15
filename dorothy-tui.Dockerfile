@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM ubuntu:latest AS dorothy-tui
 
 # Build for AMD64
 # Please modify this to suit your architecture
