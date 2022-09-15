@@ -53,7 +53,7 @@ Due to the TUI version of Dorothy omitting X11, code that requires a window mana
 
 ## Set an alias (optional)
 
-**Will I have to enter that obscenely long `docker run` command every time I want Oz?
+**Will I have to enter that obscenely long `docker run` command every time I want Oz?**
 
 Not necessarily: the process can be simplified by setting an `alias`, a shortcut that references a command - in this case, our `docker run` command and its parameters.
 
