@@ -11,7 +11,9 @@ By packaging Oz and the OPI within the self-contained, standardised environment 
 
 Due to XQuartz' current incompatibility with Apple silicon, the TUI (Text User Interface) version of Dorothy is recommended for Mac users experiencing issues with the X11 GUI.
 
+
 ---
+
 
 ## Pull and run Docker image
 
@@ -99,7 +101,9 @@ The syntax is as follows:
 -v /path/to/host/dir:/path/to/container/dir
 ```
 
-## 
+
+---
+
 
 ## Building Dorothy
 
