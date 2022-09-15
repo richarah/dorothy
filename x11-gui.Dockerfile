@@ -6,5 +6,4 @@ RUN apt-get install apt-transport-https -y && \
 
 WORKDIR /docker
 
-# Nasty hack to ensure the bash prompt actually shows
 CMD oz && /bin/bash
