@@ -1,12 +1,17 @@
 version: "2"
 services:
+  common:
+    image: dorothy-common
+    build:
+      context: .
+      dockerfile: common.Dockerfile
   tui:
     image: dorothy-tui
     build:
       context: .
-      dockerfile: dorothy-tui.Dockerfile
+      dockerfile: tui.Dockerfile
   x11-gui:
     image: dorothy-x11-gui
     build:
       context: .
-      dockerfile: dorothy-x11-gui.Dockerfile
+      dockerfile: x11-gui.Dockerfile

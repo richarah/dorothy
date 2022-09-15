@@ -1,4 +1,4 @@
-FROM ubuntu:latest AS dorothy-tui
+FROM ubuntu:latest AS dorothy-common
 
 # Build for AMD64
 # Please modify this to suit your architecture
@@ -24,6 +24,3 @@ RUN git clone --recursive https://github.com/mozart/mozart2 && \
 
 WORKDIR /docker
 RUN rm -rfv /build
-
-# No logout upon Oz exit
-CMD nohup oz & /bin/bash

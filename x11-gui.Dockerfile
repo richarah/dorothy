@@ -1,4 +1,4 @@
-FROM dorothy-tui
+FROM dorothy-common AS dorothy-x11-gui
 
 # X11 deps
 RUN apt-get install apt-transport-https -y && \
