@@ -3,7 +3,7 @@ Dorothy (named after the protagonist of Frank Baum's Oz novels) is a Docker imag
 
 #### What it's for
 
-Oz and the OPI suffer serious compatibility flaws on certain systems - particularly machines running non-Debianesque Linux distros or macOS.
+Oz and the OPI have been known to suffer serious compatibility flaws on certain systems - particularly machines running non-Debianesque Linux distros or macOS.
 
 By packaging Oz and the OPI within the self-contained, standardised environment of a Docker container, the Dorothy project aims to resolve these machine- and platform-specific issues.
 
