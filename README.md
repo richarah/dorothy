@@ -1,11 +1,11 @@
 # Dorothy
-Dorothy (named after the protagonist of Frank Baum's Oz novels) is a Docker image for running Oz and the OPI from within a container, either standalone or as part of a CDE (Containerised Development Environment) - e.g. using VSCode's [Remote - Containers](https://code.visualstudio.com/docs/remote/containers) extension.
+Dorothy (named after the protagonist of Frank Baum's Oz novels) is a Docker image for running Mozart-Oz and the OPI from within a container, either standalone or as part of a CDE (Containerised Development Environment) - e.g. using VSCode's [Remote - Containers](https://code.visualstudio.com/docs/remote/containers) extension.
 
 #### What it's for
 
-Oz and the OPI have been known to suffer serious compatibility flaws on certain systems - notably code that compiles and runs flawlessly on other machines failing to compile on those running non-Debianesque Linux distros or macOS.
+Mozart has been known to suffer serious compatibility flaws on certain systems - notably code that compiles and runs flawlessly on other machines failing to compile on those running non-Debianesque Linux distros or macOS.
 
-By packaging Oz and the OPI within the self-contained, standardised environment of a Docker container, the Dorothy project aims to resolve these machine- and platform-specific issues.
+By packaging Mozart within the self-contained, standardised environment of a Docker container, the Dorothy project aims to resolve these machine- and platform-specific issues.
 
 #### Mac users: Apple silicon and X11 issues
 
