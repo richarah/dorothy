@@ -115,7 +115,13 @@ Next, clone and `cd` into the repository:
 git clone https://github.com/richarah/dorothy.git
 cd dorothy
 ```
-The image(s) may now be built with `docker-compose`:
+
+Build the `dorothy-common` image, forming the basis for both the GUI and textmode versions:
+```
+docker-compose build common
+```
+
+The final image(s) may now be built with `docker-compose`:
 ```
 # Textmode
 docker-compose build tui
